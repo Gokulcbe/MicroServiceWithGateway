@@ -1,0 +1,15 @@
+server:
+  main:
+    web-application-type: reactive
+  port : 8767
+
+spring:
+  application:
+    name: reportgateway
+  cloud:
+    gateway:
+      routes:
+        - id: reporting
+          uri: http://localhost:8082
+          predicates:
+            - Path=/Report/**
